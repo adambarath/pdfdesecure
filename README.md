@@ -32,7 +32,7 @@ Or clone the repo and build it yourself:
 
 ```bash
 git clone https://github.com/abatsakidis/pdfdesecure.git
-cd pdfdesecure
+cd ./src/pdfdesecure
 dotnet build
 ```
 
