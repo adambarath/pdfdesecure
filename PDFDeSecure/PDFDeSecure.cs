@@ -19,7 +19,7 @@ namespace PDFDeSecure
             InitializeComponent();
         }
 
-       
+
         private async void btnbrowse_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -32,7 +32,7 @@ namespace PDFDeSecure
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pdffile.Text = openFileDialog1.FileName.ToString();
-                btnunlock.Enabled = false; 
+                btnunlock.Enabled = false;
                 btnbrowse.Enabled = false;
                 progressBar1.Value = 0;
                 var progress = new Progress<int>(report => progressBar1.Value = report);
@@ -48,7 +48,7 @@ namespace PDFDeSecure
                         outpdf.AddPage(page);
                         current++;
                         IProgress<int> iprog = progress;
-                        iprog.Report(current*100/pdf.PageCount);
+                        iprog.Report(current * 100 / pdf.PageCount);
                     }
                     fileStream.Close();
                 });
@@ -78,7 +78,7 @@ namespace PDFDeSecure
                     outpdf.Dispose();
                     pdf.Dispose();
                 });
-                MessageBox.Show("PDF file Unlocked! and Saved!","Unlocked & Saved", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("PDF file Unlocked! and Saved!", "Unlocked & Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 pdffile.Text = "";
                 btnunlock.Text = "Unlock PDF";
             }
